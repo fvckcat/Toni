@@ -1,1 +1,1 @@
-worker: python3 -m Toni
+worker: python3 -m Harita
