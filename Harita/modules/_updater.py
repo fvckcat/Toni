@@ -24,27 +24,27 @@ async def upstream(ups):
     check = ups.message.sender_id
     if int(check) != int(OWNER_ID):
         return
-    lol = await ups.reply("`Checking for updates, please wait....`")
+    lol = await ups.reply("`Mengecek update, mohon tunggu....`")
     conf = ups.pattern_match.group(1)
     off_repo = UPSTREAM_REPO_URL
     force_update = False
 
     try:
-        txt = "`Oops.. Updater cannot continue "
+        txt = "`Uups.. Update tidak bisa dilanjutkan "
         repo = Repo()
     except NoSuchPathError as error:
-        await lol.edit(f"{txt}\n`directory {error} is not found`")
+        await lol.edit(f"{txt}\n`direktori {error} tidak ditemukan`")
         repo.__del__()
         return
     except GitCommandError as error:
-        await lol.edit(f"{txt}\n`Early failure! {error}`")
+        await lol.edit(f"{txt}\n`Kegagalan awal! {error}`")
         repo.__del__()
         return
     except InvalidGitRepositoryError as error:
         if conf != "now":
             await lol.edit(
-                f"**Unfortunately, the directory {error} does not seem to be a git repository.\
-            \nBut we can fix that by force updating the bot using** `/update now`"
+                f"**Waduh, direktori {error} sepertinya tidak ada untuk repository.\
+            \nTapi saya dapat memperbaiki ini, ketik** `/update now`"
             )
             return
         repo = Repo.init()
@@ -58,10 +58,10 @@ async def upstream(ups):
     ac_br = repo.active_branch.name
     if ac_br != "master":
         await lol.edit(
-            f"**[UPDATER]:**` Looks like you are using your own custom branch ({ac_br}). "
-            "in that case, Updater is unable to identify "
-            "which branch is to be merged. "
-            "please checkout to any official branch`"
+            f"**[UPDATER]:**` Sepertinya anda menggunakan repo costum ({ac_br}). "
+            "dalam hal ini, update tidak dapat dilakukan "
+            "branch mana yang akan digabungkan. "
+            "tolong cek di official branch`"
         )
         repo.__del__()
         return
@@ -77,16 +77,16 @@ async def upstream(ups):
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
 
     if not changelog and not force_update:
-        await lol.edit("\n`Your bot is`  **up-to-date**  \n")
+        await lol.edit("\n`Bot kamu sudah`  **up-to-date**  \n")
         repo.__del__()
         return
 
     if conf != "now" and not force_update:
         changelog_str = (
-            f"**New UPDATE available for {ac_br}\n\nCHANGELOG:**\n`{changelog}`"
+            f"**UPDATE baru tersedia untuk {ac_br}\n\nCHANGELOG:**\n`{changelog}`"
         )
         if len(changelog_str) > 4096:
-            await lol.edit("`Changelog is too big, view the file to see it.`")
+            await lol.edit("`Changelog terlalu besar, unduh untuk melihatnya.`")
             file = open("output.txt", "w+")
             file.write(changelog_str)
             file.close()
@@ -98,20 +98,20 @@ async def upstream(ups):
             remove("output.txt")
         else:
             await lol.edit(changelog_str)
-        await ups.respond("**do** `/update now` **to update**")
+        await ups.respond("**ketik** `/update now` **untuk update**")
         return
 
     if force_update:
-        await lol.edit("`Force-Syncing to latest master bot code, please wait...`")
+        await lol.edit("`Tutup-Sinkronisasi ke versi terbaru, mohon tunggu...`")
     else:
-        await lol.edit("`Still Running ....`")
+        await lol.edit("`Masih berjalan ....`")
 
     try:
         ups_rem.pull(ac_br)
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     
-    await lol.edit("`Successfully Updated!\n" "restarting......`")
+    await lol.edit("`Update berhasil!\n" "restarting......`")
     args = [sys.executable, "-m", "Evie"]
     execle(sys.executable, *args, environ)
     return
