@@ -20,10 +20,10 @@ pagenumber = db.pagenumber
 
 
 
-about = "**About Me**\n\nMy name is Harita, A powerful group management bot who can take care of your groups with automated simple regular admin actions!\n\n**My Software Version:** 2.0.1\n**Telethon Version:** 1.21.1\n\n**My Developers:**\n• @Eviral\n• @Denzid\n• @wbavishek\n\nUpdates Channel: [Click Here](t.me/haritanews)\nSupport Chat: [Click Here](t.me/haritasupport)\n\nAnd finally thanks for Supporting me😘"
-ad_caption = "Hey! I am Harita, here to help you manage your groups! I perform most of the admin functions and make your group automated!\n\nJoin @HaritaNews for updates.\n@Haritasupport for help and support\n\nYou can checkout more about me via following buttons."
-pm_caption = "Hey there! My name is Harita - I'm a powerful group management bot Made to help you manage your groups easily!\n\nHit /help to find out more about me and unleash my full potential.\n\n"
-pmt = "Hello there! I'm Harita\nI'm a Telethon Based group management bot\n with a Much More features! Have a look\nat the following for an idea of some of \nthe things I can help you with.\n\nMain commands available:\n/start : Starts me, can be used to check i'm alive or not.\n/help : PM's you this message.\nExplore My Commands🙃."
+about = "**Tentang Saya**\n\nNama saya Toni, Sebuah bot manajemen grup yang kuat, yang dapat membantu admin dengan mudah!\n\n**Versi Software:** 2.0.1\n**Versi Telethon:** 1.21.1\n\n**Pembuat Saya:**\nToni | Lebah @BluueBlueSky\n\nChannel Support: [Click Here](t.me/CandaAnda)\nChat Support: [Click Here](t.me/BluueBlueSky)\n\nDan terakhir, Terimakasih sudah mensupport saya🐝"
+ad_caption = "Hay! Saya Toni, ditugaskan untuk membantu memanajemen grup! Saya bertindak seperti admin dan membuat perintah otomatis!\n\nJoin @CandaAnda untuk quotes.\n@BluueBlueSky untuk panduan dan bantuan\n\nKamu bisa mengecek lebih banyak tentang saya melalui tombol berikut."
+pm_caption = "Hay! Nama saya Toni - Saya adalah bot untuk membantu memanajemen grup dengan mudah!\n\nKetik /help untuk mengetahui lebih lanjut tentang saya.\n\n"
+pmt = "Hay! Saya Toni\nSaya adalah Telethon Based grup manajemen bot\n dengan banyak sekali fitur! Mari lihat\nbeberapa panduan dibawah ini.\n\nPerintah utama:\n/start : Memulai saya, digunakan untuk mengecek apakah saya aktif atau tidak\n/help : PM anda pesan ini.\nJelajahi Perintah Saya🐝."
 @register(pattern="^/start$")
 async def start(event):
 
@@ -33,18 +33,18 @@ async def start(event):
             pm_caption,
             buttons=[
                 [
-                    Button.inline("Tutorial", data="soon"),
-                    Button.inline("Commands", data="help_menu"),
+                    Button.inline("🧰 Tutorial", data="soon"),
+                    Button.inline("📚 Perintah", data="help_menu"),
                 ],
                   [
                     Button.url(
-                        "Add Me To Your Group!", "t.me/haritarobot?startgroup=true"
+                        "📌 Tambahkan Saya Ke Grup Kamu!", "t.me/TheToniBot?startgroup=true"
                     ),
                 ],
             ],
         )
     else:
-        await event.reply("Heya Harita is here!,\nHow Can I Help Ya.")
+        await event.reply("Yuhu Toni disini!,\nada yang bisa saya bantu?")
 
 @tbot.on(events.CallbackQuery(pattern=r"reopen_again"))
 async def reopen_again(event):
@@ -53,12 +53,12 @@ async def reopen_again(event):
             pm_caption,
             buttons=[
                 [
-                    Button.inline("Tutorial", data="soon"),
-                    Button.inline("Commands", data="help_menu"),
+                    Button.inline("🧰 Tutorial", data="soon"),
+                    Button.inline("📚 Perintah", data="help_menu"),
                 ],
                   [
                     Button.url(
-                        "Add Me To Your Group!", "t.me/haritarobot?startgroup=true"
+                        "📌 Tambahkan Saya Ke Grup Kamu!", "t.me/TheToniBot$?startgroup=true"
                     ),
                 ],
             ],
@@ -74,8 +74,8 @@ async def help(event):
         await event.reply(pmt, buttons=buttons)
     else:
         await event.reply(
-            "Contact me in PM for help!",
-            buttons=[[Button.url("Click me for help!", "t.me/haritarobot?start=help")]],
+            "Hubungi saya di Pc!",
+            buttons=[[Button.url("Klik ini untuk bantuan!", "t.me/TheToniBot?start=help")]],
         )
 
 @tbot.on(events.CallbackQuery(pattern=r"help_menu"))
@@ -103,7 +103,7 @@ async def on_plug_in_callback_query_handler(event):
         plugin = plugin_name.replace("_", " ")
         emoji = plugin_name.split("_")[0]
         output = str(CMD_HELP[plugin][1])
-        help_string = f"Here is the help for **{emoji}**:\n" + output
+        help_string = f"Inilah bantuannya untuk **{emoji}**:\n" + output
 
     if help_string is None:
         pass  # stuck on click
@@ -169,10 +169,10 @@ def paginate_help(event, page_number, loaded_plugins, prefix):
         ] + [
             (
                 custom.Button.inline(
-                    "Go Back 🔙", data="reopen_again"
+                    "Kembali 🔙", data="reopen_again"
                ),
                 custom.Button.url(
-                    "Source", "https://github.com/Teameviral/HaritaRobot"
+                    "📱 Instagram Pemilik", "www.instagram.com/antoniprananda"
                 ),
                 
                 
@@ -221,7 +221,7 @@ def nood_page(event, page_number, loaded_plugins, prefix):
         ] + [
             (
                 custom.Button.inline(
-                    "Go Back 🔙", data="help_menu"
+                    "Kembali 🔙", data="help_menu"
                 ),
 
             )
