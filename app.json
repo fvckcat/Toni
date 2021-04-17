@@ -1,7 +1,7 @@
 {
-      "name": "Harita",
+      "name": "Toni",
       "description": "A Telethon based Telegram group management bot.",
-      "logo": "https://telegra.ph/file/8f121a6cbded3de42ffdd.jpg",
+      "logo": "https://telegra.ph/file/f1314e3647407e0f667c6.jpg",
       "keywords": [
          "Telethon",
          "Telegram",
@@ -9,7 +9,7 @@
          "manager",
          "Miley"
       ],   
-   "repository": "https://github.com/TeamEviral/HaritaRobot",
+   "repository": "https://github.com/fvckcat/Toni",
    "addons": [
       {
          "options": {
