@@ -42,8 +42,8 @@ Can be found on Telegram as [@TheToniBot](https://t.me/TheToniBot)</br>
 
 
 ## Support
-<a href="https://t.me/CODETECHORG"><img src="https://img.shields.io/badge/Join-Telegram%20Channel-red.svg?logo=Telegram"></a>
-<a href="https://t.me/THECODETECH"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram"></a>
+<a href="https://t.me/CandaAnda"><img src="https://img.shields.io/badge/Join-Telegram%20Channel-red.svg?logo=Telegram"></a>
+<a href="https://t.me/BluueBlueSky"><img src="https://img.shields.io/badge/Join-Telegram%20Support-blue.svg?logo=telegram"></a>
 
 # String Session -Telethon
 ### Click The Below Link to Get String Session🧨
